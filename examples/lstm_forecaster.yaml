@@ -1,0 +1,23 @@
+version: "1.0"
+figure:
+  title: "LSTM time-series forecaster"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+metadata:
+  source_framework: generic
+  mode: paper-overview
+nodes:
+  - {id: seq, label: "Input sequence", role: input, kind: data, shape: "B × T × F"}
+  - {id: embed, label: "Feature Projection", role: representation, kind: module}
+  - {id: lstm, label: "Bidirectional LSTM", role: novel, kind: module, repeat: 3, subtitle: "temporal representation"}
+  - {id: pool, label: "Temporal Pooling", role: operator, kind: operator}
+  - {id: head, label: "Forecast Head", role: head, kind: module}
+  - {id: y, label: "Forecast", role: output, kind: output}
+edges:
+  - {from: seq, to: embed, type: main}
+  - {from: embed, to: lstm, type: main}
+  - {from: lstm, to: pool, type: main}
+  - {from: pool, to: head, type: main}
+  - {from: head, to: y, type: main}

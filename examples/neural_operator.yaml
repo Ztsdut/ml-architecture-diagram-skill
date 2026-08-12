@@ -1,0 +1,21 @@
+version: "1.0"
+figure:
+  title: "Neural operator architecture"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+metadata:
+  source_framework: generic
+  mode: paper-overview
+nodes:
+  - {id: field, label: "Input field", role: input, kind: data, shape: "grid × channels"}
+  - {id: lift, label: "Lifting Layer", role: representation, kind: module}
+  - {id: spectral, label: "Spectral Operator Block", role: novel, kind: module, repeat: 4, subtitle: "global/local mixing"}
+  - {id: project, label: "Projection", role: head, kind: module}
+  - {id: out, label: "Output field", role: output, kind: output}
+edges:
+  - {from: field, to: lift, type: main}
+  - {from: lift, to: spectral, type: main}
+  - {from: spectral, to: project, type: main}
+  - {from: project, to: out, type: main}

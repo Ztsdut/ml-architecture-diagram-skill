@@ -1,0 +1,123 @@
+version: "1.0"
+figure:
+  title: "Scientific field prediction framework"
+  target: paper
+  direction: LR
+  stage_labels:
+    inputs: "1) Inputs"
+    encoders: "2) Encoders"
+    interaction: "3) Latent representation and operator"
+    outputs: "4) Decoder and outputs"
+metadata:
+  source_framework: generic
+  mode: paper-overview
+  unresolved: []
+  architecture_family: multimodal
+  novelty: "Geometry-aware latent representation with local/global operator coupling"
+style:
+  illustration_budget: 8
+nodes:
+  - id: temporal_history
+    label: "Temporal driver history"
+    role: input
+    kind: data
+    illustration:
+      type: timeseries
+      composition: illustration-left
+      evidence: "The branch consumes a causal temporal sequence."
+  - id: spatial_context
+    label: "Spatial observation context"
+    role: input
+    kind: data
+    illustration:
+      type: feature_grid
+      composition: illustration-left
+      evidence: "The branch consumes a gridded spatial context."
+  - id: coordinate_query
+    label: "Coordinate query"
+    role: input
+    kind: data
+    illustration:
+      type: globe_coordinates
+      composition: illustration-left
+      evidence: "Predictions are queried at continuous spatial coordinates."
+  - id: temporal_encoder
+    label: "Temporal encoder"
+    role: representation
+    kind: module
+  - id: context_encoder
+    label: "Context encoder"
+    role: representation
+    kind: module
+  - id: latent_prior
+    label: "Global latent node prior"
+    subtitle: "distributed spherical nodes"
+    role: novel
+    kind: module
+    illustration:
+      type: fibonacci_sphere
+      composition: illustration-top
+      params: {nodes: 26}
+      evidence: "The latent representation lives on distributed spherical nodes."
+  - id: observation_update
+    label: "Geometry-aware context update"
+    role: novel
+    kind: module
+    illustration:
+      type: attention_fan
+      composition: illustration-top
+      evidence: "Context features update latent/query representations by geometry-aware attention."
+  - id: graph_operator
+    label: "Local graph propagation"
+    role: novel
+    kind: module
+    repeat: 4
+    illustration:
+      type: graph_network
+      composition: illustration-top
+      evidence: "The operator exchanges information over local graph neighborhoods."
+  - id: spectral_operator
+    label: "Global spectral operator"
+    role: novel
+    kind: module
+    repeat: 4
+    illustration:
+      type: spectral_sphere
+      composition: illustration-top
+      evidence: "The operator mixes low-order global spectral modes."
+  - id: decoder
+    label: "Continuous-coordinate decoder"
+    role: head
+    kind: module
+    illustration:
+      type: coordinate_axes
+      composition: illustration-top
+      evidence: "The decoder maps latent features and coordinates to continuous predictions."
+  - id: field_output
+    label: "Predicted spatial field"
+    role: output
+    kind: output
+    illustration:
+      type: field_map
+      composition: illustration-bottom
+      evidence: "The primary output is a spatial scalar field."
+  - id: uncertainty_output
+    label: "Predictive uncertainty"
+    role: output
+    kind: output
+    illustration:
+      type: uncertainty_curve
+      composition: illustration-bottom
+      evidence: "The model exposes predictive uncertainty."
+edges:
+  - {from: temporal_history, to: temporal_encoder, type: main}
+  - {from: spatial_context, to: context_encoder, type: main}
+  - {from: temporal_encoder, to: latent_prior, type: main}
+  - {from: context_encoder, to: observation_update, type: auxiliary}
+  - {from: latent_prior, to: observation_update, type: main}
+  - {from: observation_update, to: graph_operator, type: main}
+  - {from: graph_operator, to: spectral_operator, type: main}
+  - {from: spectral_operator, to: decoder, type: main}
+  - {from: coordinate_query, to: decoder, type: conditioning}
+  - {from: decoder, to: field_output, type: main}
+  - {from: decoder, to: uncertainty_output, type: main}

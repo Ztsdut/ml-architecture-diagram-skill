@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this project in academic work, please cite the repository release."
+title: "ML Architecture Diagram Skill"
+type: software
+version: 0.1.0
+date-released: 2026-08-12
+license: MIT
+authors:
+  - name: "ML Architecture Diagram Skill contributors"
+abstract: "A framework-neutral Agent Skill and code parsers, Architecture IR, and renderers for publication-ready, editable machine-learning architecture diagrams."

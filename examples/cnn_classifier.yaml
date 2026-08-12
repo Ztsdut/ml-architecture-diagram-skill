@@ -1,0 +1,25 @@
+version: "1.0"
+figure:
+  title: "Compact CNN classifier"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+  width_mm: 170
+metadata:
+  source_framework: PyTorch
+  mode: paper-overview
+  unresolved: []
+nodes:
+  - {id: image, label: "Image", role: input, kind: data, shape: "B × 3 × 224 × 224"}
+  - {id: stem, label: "Conv Stem", role: representation, kind: module, subtitle: "Conv + Norm + Act"}
+  - {id: stages, label: "Conv Stage", role: backbone, kind: module, repeat: 4, subtitle: "multiscale features"}
+  - {id: pool, label: "Global Pool", role: operator, kind: operator}
+  - {id: head, label: "Classifier", role: head, kind: module}
+  - {id: cls, label: "Class scores", role: output, kind: output}
+edges:
+  - {from: image, to: stem, type: main}
+  - {from: stem, to: stages, type: main}
+  - {from: stages, to: pool, type: main}
+  - {from: pool, to: head, type: main}
+  - {from: head, to: cls, type: main}

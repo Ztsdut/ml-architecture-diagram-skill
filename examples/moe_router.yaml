@@ -1,0 +1,25 @@
+version: "1.0"
+figure:
+  title: "Mixture-of-experts layer"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+  width_mm: 178
+metadata:
+  source_framework: generic
+  mode: paper-overview
+  unresolved: []
+nodes:
+  - {id: x, label: "Token features", role: input, kind: data}
+  - {id: router, label: "Router / Gate", role: auxiliary, kind: module, subtitle: "top-k selection"}
+  - {id: experts, label: "Expert Network", role: novel, kind: module, repeat: 8, subtitle: "sparse execution"}
+  - {id: merge, label: "Weighted Merge", role: fusion, kind: merge}
+  - {id: y, label: "Output features", role: output, kind: output}
+edges:
+  - {from: x, to: router, type: main}
+  - {from: x, to: experts, type: main}
+  - {from: router, to: experts, type: conditioning, label: "routing weights"}
+  - {from: experts, to: merge, type: main}
+  - {from: router, to: merge, type: auxiliary, label: "weights"}
+  - {from: merge, to: y, type: main}

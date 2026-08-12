@@ -1,0 +1,23 @@
+version: "1.0"
+figure:
+  title: "Transformer predictor"
+  direction: LR
+  target: paper
+  width_mm: 178
+  auto_detail: auto
+metadata:
+  architecture_family: transformer
+  source_framework: generic
+nodes:
+  - {id: tokens, label: "Input tokens", role: input, kind: data, shape: "B × T"}
+  - {id: embedding, label: "Token + position embedding", role: representation, kind: module}
+  - {id: encoder, label: "Transformer Encoder", role: novel, kind: module, repeat: 6, shape: "B × T × d"}
+  - {id: pooling, label: "Sequence pooling", role: operator, kind: operator}
+  - {id: head, label: "Prediction head", role: head, kind: module}
+  - {id: output, label: "Prediction", role: output, kind: output}
+edges:
+  - {from: tokens, to: embedding, type: main}
+  - {from: embedding, to: encoder, type: main}
+  - {from: encoder, to: pooling, type: main}
+  - {from: pooling, to: head, type: main}
+  - {from: head, to: output, type: main}

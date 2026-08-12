@@ -1,0 +1,29 @@
+version: "1.0"
+figure:
+  title: "Encoder-decoder network with skip connections"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+  width_mm: 178
+metadata:
+  source_framework: generic
+  mode: paper-overview
+  unresolved: []
+nodes:
+  - {id: x, label: "Input", role: input, kind: data}
+  - {id: enc1, label: "Encoder 1", role: representation, kind: module, subtitle: "high resolution"}
+  - {id: enc2, label: "Encoder 2", role: backbone, kind: module}
+  - {id: bottleneck, label: "Bottleneck", role: novel, kind: module}
+  - {id: dec2, label: "Decoder 2", role: backbone, kind: module}
+  - {id: dec1, label: "Decoder 1", role: representation, kind: module, subtitle: "high resolution"}
+  - {id: y, label: "Output", role: output, kind: output}
+edges:
+  - {from: x, to: enc1, type: main}
+  - {from: enc1, to: enc2, type: main}
+  - {from: enc2, to: bottleneck, type: main}
+  - {from: bottleneck, to: dec2, type: main}
+  - {from: dec2, to: dec1, type: main}
+  - {from: dec1, to: y, type: main}
+  - {from: enc2, to: dec2, type: residual, label: "skip"}
+  - {from: enc1, to: dec1, type: residual, label: "skip"}

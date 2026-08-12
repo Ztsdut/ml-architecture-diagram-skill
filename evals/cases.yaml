@@ -1,0 +1,62 @@
+version: "1.0"
+cases:
+  - id: pytorch-unused-module
+    prompt: "Read this PyTorch model. __init__ defines an attention layer, but forward() never calls it. Draw the paper architecture."
+    must:
+      - "Do not draw the unused attention layer."
+      - "Use forward() as the source of truth."
+
+  - id: shared-weight-reuse
+    prompt: "The same encoder module is called twice for two inputs before concatenation. Draw the architecture."
+    must:
+      - "Indicate shared weights or reuse."
+      - "Do not imply two independent encoders unless the implementation has separate parameters."
+
+  - id: residual-vs-concat
+    prompt: "The block computes y = f(x) + x, then concatenates y with context c."
+    must:
+      - "Represent the residual merge as addition."
+      - "Represent the later fusion as concatenation, not addition."
+
+  - id: transformer-compression
+    prompt: "A 24-layer homogeneous Transformer encoder is followed by pooling and a regression head. Make a manuscript overview."
+    must:
+      - "Compress the repeated encoder using ×24."
+      - "Do not draw all 24 blocks individually."
+
+  - id: unet-skips
+    prompt: "Draw a 4-level U-Net with encoder-decoder skip connections."
+    must:
+      - "Align corresponding encoder and decoder scales."
+      - "Make skip links visually traceable."
+
+  - id: dynamic-moe
+    prompt: "A router selects top-2 of 16 experts per token. Draw the MoE layer."
+    must:
+      - "Show routing/selection explicitly."
+      - "Do not imply all 16 experts execute for every token."
+
+  - id: training-only-teacher
+    prompt: "Student network uses a teacher only during distillation training. Draw both paper inference and training views."
+    must:
+      - "Exclude teacher from the inference path."
+      - "Mark teacher/distillation connection as training-only."
+
+  - id: unknown-shapes
+    prompt: "The code fragment omits the active config that defines hidden size. Draw the architecture anyway."
+    must:
+      - "Do not invent a hidden dimension."
+      - "Record the missing dimension as unresolved or omit it."
+
+  - id: scientific-mini-illustrations
+    prompt: "The method uses a causal driver history, a spherical latent node set, local graph propagation, and a probabilistic prediction head. Draw a paper overview from the model code and this description."
+    must:
+      - "Select only a small number of scientifically useful mini-illustrations instead of decorating every layer."
+      - "Use code/description evidence for the temporal, spherical, graph, and uncertainty sketches."
+      - "Keep architecture topology unchanged by the illustration layer."
+
+  - id: unseen-domain-custom-illustration
+    prompt: "A custom scientific model contains a measurement geometry that is not covered by the built-in visual primitives. The code and method description make the geometry clear."
+    must:
+      - "Author an original symbolic vector sketch with custom_dsl rather than inventing a new architecture node or silently using an unrelated stock icon."
+      - "Do not fabricate measured data or unsupported physical geometry."

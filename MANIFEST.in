@@ -1,0 +1,14 @@
+include SKILL.md
+include README.md
+include ROADMAP.md
+include CONTRIBUTING.md
+include CITATION.cff
+include LICENSE
+recursive-include templates *.yaml *.json
+recursive-include references *.md
+recursive-include examples *.yaml
+recursive-include evals *.yaml
+recursive-include assets *.png *.svg
+
+recursive-include docs *.md
+recursive-include examples *.py

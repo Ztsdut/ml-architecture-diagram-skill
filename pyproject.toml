@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-architecture-diagram"
+version = "0.1.0"
+description = "Framework-neutral Architecture IR and renderers for publication-ready ML model diagrams"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "ML Architecture Diagram Skill contributors"}]
+dependencies = [
+  "PyYAML>=6.0",
+  "jsonschema>=4.20",
+  "networkx>=3.2",
+]
+keywords = ["machine-learning", "deep-learning", "architecture", "diagram", "agent-skill", "scientific-visualization"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Visualization",
+]
+
+[project.optional-dependencies]
+export = [
+  "python-pptx>=0.6.23",
+  "CairoSVG>=2.7",
+]
+ai = [
+  "openai>=1.0",
+  "CairoSVG>=2.7",
+]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+ml-arch = "ml_architecture_diagram.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+ml_architecture_diagram = ["resources/*.json"]

@@ -1,0 +1,25 @@
+version: "1.0"
+figure:
+  title: "Training pipeline"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+  width_mm: 178
+metadata:
+  source_framework: generic
+  mode: training-pipeline
+  unresolved: []
+nodes:
+  - {id: x, label: "Training input", role: input, kind: data}
+  - {id: augment, label: "Augmentation", role: preprocess, kind: operator}
+  - {id: model, label: "Model", role: novel, kind: module}
+  - {id: pred, label: "Prediction", role: output, kind: output}
+  - {id: target, label: "Target", role: input, kind: data}
+  - {id: loss, label: "Training Loss", role: training, kind: loss}
+edges:
+  - {from: x, to: augment, type: main}
+  - {from: augment, to: model, type: main}
+  - {from: model, to: pred, type: main}
+  - {from: pred, to: loss, type: training}
+  - {from: target, to: loss, type: training}

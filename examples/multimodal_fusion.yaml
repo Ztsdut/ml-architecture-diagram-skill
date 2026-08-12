@@ -1,0 +1,33 @@
+version: "1.0"
+figure:
+  title: "Multimodal fusion network"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+  width_mm: 178
+metadata:
+  source_framework: generic
+  mode: paper-overview
+  unresolved: []
+nodes:
+  - {id: image, label: "Image", role: input, kind: data}
+  - {id: text, label: "Text", role: input, kind: data}
+  - {id: metadata, label: "Metadata", role: input, kind: data}
+  - {id: image_enc, label: "Vision Encoder", role: representation, kind: module}
+  - {id: text_enc, label: "Text Encoder", role: representation, kind: module}
+  - {id: meta_enc, label: "Metadata Encoder", role: auxiliary, kind: module}
+  - {id: fusion, label: "Feature Fusion", role: fusion, kind: merge, subtitle: "Concat + projection"}
+  - {id: shared, label: "Shared Representation", role: novel, kind: module, repeat: 3}
+  - {id: head, label: "Task Head", role: head, kind: module}
+  - {id: output, label: "Prediction", role: output, kind: output}
+edges:
+  - {from: image, to: image_enc, type: main}
+  - {from: text, to: text_enc, type: main}
+  - {from: metadata, to: meta_enc, type: auxiliary}
+  - {from: image_enc, to: fusion, type: main}
+  - {from: text_enc, to: fusion, type: main}
+  - {from: meta_enc, to: fusion, type: auxiliary}
+  - {from: fusion, to: shared, type: main}
+  - {from: shared, to: head, type: main}
+  - {from: head, to: output, type: main}

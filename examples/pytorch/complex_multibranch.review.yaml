@@ -1,0 +1,74 @@
+figure:
+  stage_labels:
+    inputs: "1) Inputs"
+    encoders: "2) Encoders"
+    interaction: "3) Context fusion and gating"
+    outputs: "4) Prediction and outputs"
+nodes:
+  input_map_features:
+    label: "Spatial features"
+    shape: "B × Tm × 16"
+    illustration:
+      type: feature_grid
+      composition: illustration-left
+      evidence: "The input branch consumes a gridded spatial feature sequence."
+  input_history:
+    label: "History sequence"
+    shape: "B × Th × 12"
+    illustration:
+      type: timeseries
+      composition: illustration-left
+      evidence: "The branch consumes an ordered temporal history."
+  input_future_geometry:
+    label: "Future geometry"
+    illustration:
+      type: coordinate_axes
+      composition: illustration-left
+      evidence: "The query branch is conditioned on future geometry coordinates."
+  input_environment:
+    label: "Environment"
+  map_encoder:
+    subtitle: "spatial projection"
+  history_encoder:
+    subtitle: "history representation"
+  query_encoder:
+    subtitle: "geometry + environment"
+  spatial_attention:
+    subtitle: "Q: future · K,V: spatial"
+    illustration:
+      type: attention_fan
+      composition: illustration-top
+      evidence: "The forward path uses future queries to attend over spatial tokens."
+  history_attention:
+    subtitle: "Q: future · K,V: history"
+  context_gate:
+    subtitle: "sigmoid context gate"
+  main_head:
+    subtitle: "primary predictor"
+  aux_head:
+    subtitle: "auxiliary predictor"
+edges:
+  - from: query_encoder
+    to: spatial_attention
+    label: Q
+    set: {label: ""}
+  - from: map_encoder
+    to: spatial_attention
+    label: K,V
+    set: {label: ""}
+  - from: query_encoder
+    to: history_attention
+    label: Q
+    set: {label: ""}
+  - from: history_encoder
+    to: history_attention
+    label: K,V
+    set: {label: ""}
+
+  - from: context_gate
+    to: output_gate
+    set:
+      overview: hide
+
+notes:
+  - "Synthetic regression case: review adds paper-facing semantics without changing topology."

@@ -1,0 +1,85 @@
+version: "1.0"
+
+figure:
+  title: "Model architecture"
+  subtitle: ""
+  direction: "LR"            # LR | TB
+  target: "paper"            # paper | presentation | debug
+  theme: "paper-light"
+  font: "Arial"
+  width_mm: 178
+  panel_gap_mm: 8
+  # architecture_family: "transformer"   # optional manual override
+  # layout_preset: "block_diagram"       # optional manual override
+
+metadata:
+  source_framework: "unknown"
+  source_files: []
+  mode: "paper-overview"
+  unresolved: []
+
+panels:
+  - id: overall
+    label: "(a)"
+    title: "Overall architecture"
+    node_ids: []               # empty = infer all nodes not assigned elsewhere
+
+nodes:
+  - id: input
+    label: "Input"
+    role: "input"              # input | preprocess | representation | backbone | novel | auxiliary | operator | fusion | head | output | training | neutral
+    kind: "data"               # data | module | operator | merge | output | loss | custom
+    shape: ""
+    subtitle: ""
+    repeat: 1
+    panel: overall
+    group: ""
+    details: []
+    shared: false
+    # visual:
+    #   type: "data_stack"   # optional Scientific Visual Grammar override
+
+  - id: block
+    label: "Model Block"
+    role: "backbone"
+    kind: "module"
+    repeat: 1
+    panel: overall
+
+  - id: output
+    label: "Prediction"
+    role: "output"
+    kind: "output"
+    panel: overall
+
+edges:
+  - from: input
+    to: block
+    type: "main"               # main | residual | auxiliary | conditioning | training
+    label: ""
+  - from: block
+    to: output
+    type: "main"
+
+annotations: []
+
+groups: []
+
+style:
+  compact: false
+  show_shapes: true
+  show_repeat_badges: true
+  visual_grammar: true
+  colors: {}                   # optional semantic-role/theme overrides
+
+# Optional paper-facing mini-illustration on any node. This never changes topology.
+# illustration:
+#   type: graph_network             # built-in type or custom_dsl
+#   composition: illustration-top  # left/right/top/bottom/center
+#   params: {}
+#   evidence: "Supported by the model description / code semantics"
+#   # For a new domain concept, use safe normalized vector primitives:
+#   # type: custom_dsl
+#   # primitives:
+#   #   - {shape: circle, cx: 25, cy: 50, r: 8, fill: accent}
+#   #   - {shape: line, x1: 33, y1: 50, x2: 75, y2: 30, stroke: stroke}

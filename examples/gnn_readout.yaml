@@ -1,0 +1,25 @@
+version: "1.0"
+figure:
+  title: "Graph neural network"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+  width_mm: 178
+metadata:
+  source_framework: generic
+  mode: paper-overview
+  unresolved: []
+nodes:
+  - {id: graph, label: "Graph input", role: input, kind: data, subtitle: "nodes + edges"}
+  - {id: embed, label: "Feature Embedding", role: representation, kind: module}
+  - {id: mp, label: "Message-Passing Block", role: novel, kind: module, repeat: 4}
+  - {id: readout, label: "Graph Readout", role: fusion, kind: merge}
+  - {id: head, label: "Task Head", role: head, kind: module}
+  - {id: output, label: "Prediction", role: output, kind: output}
+edges:
+  - {from: graph, to: embed, type: main}
+  - {from: embed, to: mp, type: main}
+  - {from: mp, to: readout, type: main}
+  - {from: readout, to: head, type: main}
+  - {from: head, to: output, type: main}

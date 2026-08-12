@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1227" height="1212" viewBox="0 0 1227 1212">
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#36454F"/></marker></defs>
+<rect x="0" y="0" width="100%" height="100%" fill="#FFFFFF"/>
+<text x="18.0" y="27.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18.0" font-weight="650" fill="#1F2933" opacity="1.00">(a) Overall architecture</text>
+<path d="M 218.0,150.0 L 272.0,150.0" fill="none" stroke="#36454F" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 426.0,150.0 L 480.0,150.0" fill="none" stroke="#36454F" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 728.6,150.0 L 800.6,150.0" fill="none" stroke="#36454F" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 954.6,150.0 L 1008.6,150.0" fill="none" stroke="#36454F" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<g id="node-field"><rect x="76.9" y="87.0" width="119.5" height="69.6" fill="#DCEAF7" fill-opacity="0.48" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="73.5" y="90.4" width="119.5" height="69.6" fill="#DCEAF7" fill-opacity="0.62" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="70.1" y="93.8" width="119.5" height="69.6" fill="#DCEAF7" fill-opacity="0.76" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="66.7" y="97.2" width="119.5" height="69.6" fill="#DCEAF7" fill-opacity="0.90" stroke="#2F3B45" stroke-width="1.41"/>
+<line x1="106.2" y1="97.2" x2="106.2" y2="166.9" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="66.7" y1="120.2" x2="186.3" y2="120.2" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="145.6" y1="97.2" x2="145.6" y2="166.9" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="66.7" y1="143.2" x2="186.3" y2="143.2" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<text x="135.0" y="205.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13.9" font-weight="400" fill="#1F2933" opacity="0.68">B × C × H × W</text>
+<text x="135.0" y="187.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="620" fill="#1F2933" opacity="1.00">Input field</text></g>
+<g id="node-lift"><rect x="272.0" y="113.0" width="154.0" height="74.0" rx="3" fill="#FFFFFF" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="272.0" y="113.0" width="154.0" height="7" rx="3" fill="#DCEFEA" stroke="none"/>
+<rect x="272.0" y="117.0" width="154.0" height="3" fill="#DCEFEA" stroke="none"/>
+<text x="349.0" y="150.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="650" fill="#1F2933" opacity="1.00">Lifting layer</text></g>
+<g id="node-proposed_operator"><rect x="480.0" y="74.0" width="248.6" height="152.0" rx="3" fill="#FFFFFF" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="480.0" y="74.0" width="248.6" height="7" rx="3" fill="#F3D7A7" stroke="none"/>
+<rect x="480.0" y="78.0" width="248.6" height="3" fill="#F3D7A7" stroke="none"/>
+<circle cx="604.3" cy="119.9" r="20.9" fill="#FFFFFF" stroke="#2F3B45" stroke-width="0.85" opacity="1.00"/>
+<ellipse cx="604.3" cy="108.4" rx="17.5" ry="2.5" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".45"/>
+<ellipse cx="604.3" cy="119.9" rx="20.9" ry="2.5" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".45"/>
+<ellipse cx="604.3" cy="131.4" rx="17.5" ry="2.5" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".45"/>
+<ellipse cx="604.3" cy="119.9" rx="10.4" ry="20.9" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".38"/>
+<ellipse cx="604.3" cy="119.9" rx="3.8" ry="20.9" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".38"/>
+<ellipse cx="604.3" cy="119.9" rx="10.4" ry="20.9" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".38"/>
+<polyline points="588.0,114.3 588.8,114.7 589.7,115.2 590.5,115.5 591.3,115.7 592.2,115.7 593.0,115.6 593.8,115.4 594.7,115.1 595.5,114.6 596.4,114.2 597.2,113.7 598.0,113.3 598.9,113.0 599.7,112.8 600.5,112.8 601.4,112.9 602.2,113.2 603.0,113.6 603.9,114.0 604.7,114.5 605.6,115.0 606.4,115.3 607.2,115.6 608.1,115.7 608.9,115.7 609.7,115.5 610.6,115.2 611.4,114.8 612.2,114.4 613.1,113.9 613.9,113.5 614.8,113.1 615.6,112.9 616.4,112.8 617.3,112.9 618.1,113.1 618.9,113.4 619.8,113.8 620.6,114.3" fill="none" stroke="#F3D7A7" stroke-width="1.0"/>
+<polyline points="588.0,121.1 588.8,121.3 589.7,121.4 590.5,121.3 591.3,121.1 592.2,120.8 593.0,120.4 593.8,119.9 594.7,119.4 595.5,119.0 596.4,118.7 597.2,118.5 598.0,118.5 598.9,118.6 599.7,118.8 600.5,119.2 601.4,119.6 602.2,120.1 603.0,120.5 603.9,120.9 604.7,121.2 605.6,121.4 606.4,121.4 607.2,121.2 608.1,121.0 608.9,120.6 609.7,120.1 610.6,119.7 611.4,119.2 612.2,118.8 613.1,118.6 613.9,118.5 614.8,118.5 615.6,118.7 616.4,119.0 617.3,119.4 618.1,119.8 618.9,120.3 619.8,120.7 620.6,121.1" fill="none" stroke="#E8F0E4" stroke-width="1.0"/>
+<polyline points="588.0,127.0 588.8,126.8 589.7,126.5 590.5,126.1 591.3,125.6 592.2,125.2 593.0,124.7 593.8,124.4 594.7,124.2 595.5,124.1 596.4,124.2 597.2,124.4 598.0,124.7 598.9,125.1 599.7,125.6 600.5,126.1 601.4,126.5 602.2,126.8 603.0,127.0 603.9,127.0 604.7,126.9 605.6,126.7 606.4,126.3 607.2,125.9 608.1,125.4 608.9,125.0 609.7,124.6 610.6,124.3 611.4,124.1 612.2,124.1 613.1,124.3 613.9,124.5 614.8,124.9 615.6,125.4 616.4,125.8 617.3,126.3 618.1,126.6 618.9,126.9 619.8,127.0 620.6,127.0" fill="none" stroke="#DCEAF7" stroke-width="1.0"/>
+<text x="604.3" y="175.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="650" fill="#1F2933" opacity="1.00">Local-spectral operator</text>
+<text x="604.3" y="191.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="650" fill="#1F2933" opacity="1.00">block</text>
+<text x="604.3" y="213.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13.9" font-weight="400" fill="#1F2933" opacity="0.68">local propagation + low-order</text>
+<text x="720.6" y="218.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="14.3" font-weight="650" fill="#1F2933" opacity="0.78">×4</text></g>
+<text x="488.0" y="89.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.9" font-weight="700" fill="#C66A12" opacity="1.00">(b)</text>
+<g id="node-projection"><rect x="800.6" y="113.0" width="154.0" height="74.0" rx="3" fill="#FFFFFF" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="800.6" y="113.0" width="154.0" height="7" rx="3" fill="#DDEBD8" stroke="none"/>
+<rect x="800.6" y="117.0" width="154.0" height="3" fill="#DDEBD8" stroke="none"/>
+<text x="877.6" y="150.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="650" fill="#1F2933" opacity="1.00">Projection head</text></g>
+<g id="node-output"><rect x="1033.5" y="87.0" width="119.5" height="69.6" fill="#E8F0E4" fill-opacity="0.48" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="1030.1" y="90.4" width="119.5" height="69.6" fill="#E8F0E4" fill-opacity="0.62" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="1026.7" y="93.8" width="119.5" height="69.6" fill="#E8F0E4" fill-opacity="0.76" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="1023.3" y="97.2" width="119.5" height="69.6" fill="#E8F0E4" fill-opacity="0.90" stroke="#2F3B45" stroke-width="1.41"/>
+<line x1="1062.8" y1="97.2" x2="1062.8" y2="166.9" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="1023.3" y1="120.2" x2="1142.9" y2="120.2" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="1102.2" y1="97.2" x2="1102.2" y2="166.9" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="1023.3" y1="143.2" x2="1142.9" y2="143.2" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<text x="1091.6" y="205.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="620" fill="#1F2933" opacity="1.00">Predicted field</text></g>
+<text x="458.7" y="367.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18.0" font-weight="650" fill="#1F2933" opacity="1.00">(b) Detailed structure of the proposed operator block</text>
+<path d="M 613.3,542.0 L 613.3,590.0" fill="none" stroke="#36454F" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 613.3,702.0 L 613.3,750.0" fill="none" stroke="#36454F" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 613.3,876.0 L 613.3,924.0" fill="none" stroke="#36454F" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 696.3,483.0 L 736.3,483.0 L 736.3,957.0 L 650.3,957.0" fill="none" stroke="#36454F" stroke-width="1.41" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 613.3,990.0 L 613.3,1038.0" fill="none" stroke="#36454F" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<g id="node-detail__proposed_operator__input"><rect x="555.2" y="420.0" width="119.5" height="69.6" fill="#DCEAF7" fill-opacity="0.48" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="551.8" y="423.4" width="119.5" height="69.6" fill="#DCEAF7" fill-opacity="0.62" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="548.4" y="426.8" width="119.5" height="69.6" fill="#DCEAF7" fill-opacity="0.76" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="545.0" y="430.2" width="119.5" height="69.6" fill="#DCEAF7" fill-opacity="0.90" stroke="#2F3B45" stroke-width="1.41"/>
+<line x1="584.5" y1="430.2" x2="584.5" y2="499.9" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="545.0" y1="453.2" x2="664.6" y2="453.2" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="623.9" y1="430.2" x2="623.9" y2="499.9" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="545.0" y1="476.2" x2="664.6" y2="476.2" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<text x="613.3" y="538.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="620" fill="#1F2933" opacity="1.00">Block input</text></g>
+<g id="node-detail__proposed_operator__local"><rect x="498.1" y="590.0" width="230.3" height="112.0" rx="3" fill="#FFFFFF" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="498.1" y="590.0" width="230.3" height="7" rx="3" fill="#F3D7A7" stroke="none"/>
+<rect x="498.1" y="594.0" width="230.3" height="3" fill="#F3D7A7" stroke="none"/>
+<line x1="522.5" y1="648.4" x2="533.9" y2="629.6" stroke="#2F3B45" stroke-width="0.70" opacity="0.58"/>
+<line x1="533.9" y1="629.6" x2="545.4" y2="644.9" stroke="#2F3B45" stroke-width="0.70" opacity="0.58" stroke-dasharray="3 2"/>
+<line x1="545.4" y1="644.9" x2="558.2" y2="625.4" stroke="#2F3B45" stroke-width="0.70" opacity="0.58"/>
+<line x1="558.2" y1="625.4" x2="565.4" y2="650.4" stroke="#2F3B45" stroke-width="0.70" opacity="0.58"/>
+<line x1="565.4" y1="650.4" x2="543.9" y2="664.3" stroke="#2F3B45" stroke-width="0.70" opacity="0.58" stroke-dasharray="3 2"/>
+<line x1="543.9" y1="664.3" x2="529.7" y2="662.9" stroke="#2F3B45" stroke-width="0.70" opacity="0.58"/>
+<line x1="529.7" y1="662.9" x2="522.5" y2="648.4" stroke="#2F3B45" stroke-width="0.70" opacity="0.58" stroke-dasharray="3 2"/>
+<line x1="533.9" y1="629.6" x2="529.7" y2="662.9" stroke="#2F3B45" stroke-width="0.70" opacity="0.58"/>
+<line x1="545.4" y1="644.9" x2="543.9" y2="664.3" stroke="#2F3B45" stroke-width="0.70" opacity="0.58"/>
+<line x1="545.4" y1="644.9" x2="565.4" y2="650.4" stroke="#2F3B45" stroke-width="0.70" opacity="0.58" stroke-dasharray="3 2"/>
+<circle cx="522.5" cy="648.4" r="3.1" fill="#FFFFFF" stroke="#2F3B45" stroke-width="0.80" opacity="1.00"/>
+<circle cx="533.9" cy="629.6" r="3.1" fill="#FFFFFF" stroke="#2F3B45" stroke-width="0.80" opacity="1.00"/>
+<circle cx="545.4" cy="644.9" r="3.1" fill="#F3D7A7" stroke="#2F3B45" stroke-width="0.80" opacity="1.00"/>
+<circle cx="558.2" cy="625.4" r="3.1" fill="#FFFFFF" stroke="#2F3B45" stroke-width="0.80" opacity="1.00"/>
+<circle cx="565.4" cy="650.4" r="3.1" fill="#FFFFFF" stroke="#2F3B45" stroke-width="0.80" opacity="1.00"/>
+<circle cx="543.9" cy="664.3" r="3.1" fill="#F3D7A7" stroke="#2F3B45" stroke-width="0.80" opacity="1.00"/>
+<circle cx="529.7" cy="662.9" r="3.1" fill="#FFFFFF" stroke="#2F3B45" stroke-width="0.80" opacity="1.00"/>
+<text x="597.2" y="626.7" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="650" fill="#1F2933" opacity="1.00">Local graph</text>
+<text x="597.2" y="642.9" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="650" fill="#1F2933" opacity="1.00">propagation</text></g>
+<g id="node-detail__proposed_operator__spectral"><rect x="492.7" y="750.0" width="241.2" height="126.0" rx="3" fill="#FFFFFF" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="492.7" y="750.0" width="241.2" height="7" rx="3" fill="#F3D7A7" stroke="none"/>
+<rect x="492.7" y="754.0" width="241.2" height="3" fill="#F3D7A7" stroke="none"/>
+<circle cx="542.1" cy="809.4" r="23.9" fill="#FFFFFF" stroke="#2F3B45" stroke-width="0.85" opacity="1.00"/>
+<ellipse cx="542.1" cy="796.2" rx="20.0" ry="2.9" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".45"/>
+<ellipse cx="542.1" cy="809.4" rx="23.9" ry="2.9" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".45"/>
+<ellipse cx="542.1" cy="822.6" rx="20.0" ry="2.9" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".45"/>
+<ellipse cx="542.1" cy="809.4" rx="11.9" ry="23.9" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".38"/>
+<ellipse cx="542.1" cy="809.4" rx="4.3" ry="23.9" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".38"/>
+<ellipse cx="542.1" cy="809.4" rx="11.9" ry="23.9" fill="none" stroke="#2F3B45" stroke-width=".45" opacity=".38"/>
+<polyline points="523.5,802.9 524.4,803.5 525.4,803.9 526.4,804.3 527.3,804.5 528.3,804.6 529.2,804.5 530.2,804.2 531.1,803.8 532.1,803.3 533.1,802.8 534.0,802.3 535.0,801.8 535.9,801.5 536.9,801.3 537.8,801.3 538.8,801.4 539.8,801.7 540.7,802.2 541.7,802.7 542.6,803.2 543.6,803.7 544.5,804.1 545.5,804.4 546.5,804.6 547.4,804.6 548.4,804.4 549.3,804.0 550.3,803.6 551.2,803.1 552.2,802.5 553.2,802.0 554.1,801.6 555.1,801.4 556.0,801.3 557.0,801.3 557.9,801.6 558.9,801.9 559.9,802.4 560.8,802.9" fill="none" stroke="#F3D7A7" stroke-width="1.0"/>
+<polyline points="523.5,810.7 524.4,811.0 525.4,811.1 526.4,811.0 527.3,810.8 528.3,810.4 529.2,809.9 530.2,809.4 531.1,808.8 532.1,808.4 533.1,808.0 534.0,807.8 535.0,807.7 535.9,807.8 536.9,808.1 537.8,808.5 538.8,809.0 539.8,809.6 540.7,810.1 541.7,810.5 542.6,810.9 543.6,811.0 544.5,811.1 545.5,810.9 546.5,810.6 547.4,810.2 548.4,809.6 549.3,809.1 550.3,808.6 551.2,808.2 552.2,807.9 553.2,807.7 554.1,807.8 555.1,808.0 556.0,808.3 557.0,808.8 557.9,809.3 558.9,809.8 559.9,810.3 560.8,810.7" fill="none" stroke="#E8F0E4" stroke-width="1.0"/>
+<polyline points="523.5,817.5 524.4,817.3 525.4,816.9 526.4,816.5 527.3,815.9 528.3,815.4 529.2,814.9 530.2,814.5 531.1,814.3 532.1,814.2 533.1,814.3 534.0,814.5 535.0,814.9 535.9,815.4 536.9,815.9 537.8,816.4 538.8,816.9 539.8,817.3 540.7,817.5 541.7,817.5 542.6,817.4 543.6,817.1 544.5,816.7 545.5,816.2 546.5,815.7 547.4,815.2 548.4,814.7 549.3,814.4 550.3,814.2 551.2,814.2 552.2,814.4 553.2,814.7 554.1,815.1 555.1,815.6 556.0,816.2 557.0,816.7 557.9,817.1 558.9,817.4 559.9,817.5 560.8,817.5" fill="none" stroke="#DCEAF7" stroke-width="1.0"/>
+<text x="596.4" y="792.3" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="650" fill="#1F2933" opacity="1.00">Low-order</text>
+<text x="596.4" y="808.5" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="650" fill="#1F2933" opacity="1.00">spectral</text></g>
+<g id="node-detail__proposed_operator__fusion"><circle cx="613.3" cy="957.0" r="18.5" fill="#DDEBD8" fill-opacity=".70" stroke="#2F3B45" stroke-width="1.41"/>
+<text x="613.3" y="961.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19.4" font-weight="650" fill="#1F2933" opacity="1.00">+</text>
+<text x="613.3" y="1003.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.8" font-weight="600" fill="#1F2933" opacity="1.00">+</text></g>
+<g id="node-detail__proposed_operator__output"><rect x="555.2" y="1034.0" width="119.5" height="69.6" fill="#E8F0E4" fill-opacity="0.48" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="551.8" y="1037.4" width="119.5" height="69.6" fill="#E8F0E4" fill-opacity="0.62" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="548.4" y="1040.8" width="119.5" height="69.6" fill="#E8F0E4" fill-opacity="0.76" stroke="#2F3B45" stroke-width="1.41"/>
+<rect x="545.0" y="1044.2" width="119.5" height="69.6" fill="#E8F0E4" fill-opacity="0.90" stroke="#2F3B45" stroke-width="1.41"/>
+<line x1="584.5" y1="1044.2" x2="584.5" y2="1113.8" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="545.0" y1="1067.2" x2="664.6" y2="1067.2" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="623.9" y1="1044.2" x2="623.9" y2="1113.8" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<line x1="545.0" y1="1090.2" x2="664.6" y2="1090.2" stroke="#2F3B45" stroke-width="0.63" opacity=".23"/>
+<text x="613.3" y="1152.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17.5" font-weight="620" fill="#1F2933" opacity="1.00">Block output</text></g>
+</svg>

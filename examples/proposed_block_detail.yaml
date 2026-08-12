@@ -1,0 +1,64 @@
+version: "1.0"
+figure:
+  title: "Operator-learning framework with proposed block detail"
+  direction: LR
+  target: paper
+  width_mm: 178
+  auto_detail: auto
+metadata:
+  source_framework: generic
+  architecture_family: operator
+  mode: paper-detail
+nodes:
+  - id: field
+    label: "Input field"
+    role: input
+    kind: data
+    shape: "B × C × H × W"
+  - id: lift
+    label: "Lifting layer"
+    role: representation
+    kind: module
+  - id: proposed_operator
+    label: "Local-spectral operator block"
+    role: novel
+    kind: module
+    repeat: 4
+    subtitle: "local propagation + low-order spectral mixing"
+    detail:
+      label: "(b)"
+      title: "Detailed structure of the proposed operator block"
+      direction: TB
+      nodes:
+        - {id: input, label: "Block input", role: input, kind: data}
+        - id: local
+          label: "Local graph propagation"
+          role: novel
+          kind: module
+          illustration: {type: graph_network, composition: illustration-left}
+        - id: spectral
+          label: "Low-order spectral transform"
+          role: novel
+          kind: module
+          illustration: {type: spectral_sphere, composition: illustration-left}
+        - {id: fusion, label: "+", role: fusion, kind: merge}
+        - {id: output, label: "Block output", role: output, kind: output}
+      edges:
+        - {from: input, to: local, type: main}
+        - {from: local, to: spectral, type: main}
+        - {from: spectral, to: fusion, type: main}
+        - {from: input, to: fusion, type: residual}
+        - {from: fusion, to: output, type: main}
+  - id: projection
+    label: "Projection head"
+    role: head
+    kind: module
+  - id: output
+    label: "Predicted field"
+    role: output
+    kind: output
+edges:
+  - {from: field, to: lift, type: main}
+  - {from: lift, to: proposed_operator, type: main}
+  - {from: proposed_operator, to: projection, type: main}
+  - {from: projection, to: output, type: main}

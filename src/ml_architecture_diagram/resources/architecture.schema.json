@@ -1,0 +1,338 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ml-architecture-diagram:architecture-ir:1.0",
+  "title": "ML Architecture Diagram IR",
+  "type": "object",
+  "required": [
+    "version",
+    "figure",
+    "nodes",
+    "edges"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "figure": {
+      "type": "object",
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "LR",
+            "TB"
+          ]
+        },
+        "target": {
+          "enum": [
+            "paper",
+            "presentation",
+            "debug"
+          ]
+        },
+        "theme": {
+          "type": "string"
+        },
+        "font": {
+          "type": "string"
+        },
+        "width_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "panel_gap_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "panel_layout": {
+          "enum": [
+            "vertical",
+            "horizontal"
+          ]
+        },
+        "panel_gap": {
+          "type": "number",
+          "minimum": 0
+        },
+        "architecture_family": {
+          "type": "string"
+        },
+        "layout_preset": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "panels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "node_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "input",
+              "preprocess",
+              "representation",
+              "backbone",
+              "novel",
+              "auxiliary",
+              "operator",
+              "fusion",
+              "head",
+              "output",
+              "training",
+              "neutral"
+            ]
+          },
+          "kind": {
+            "enum": [
+              "data",
+              "module",
+              "operator",
+              "merge",
+              "output",
+              "loss",
+              "custom"
+            ]
+          },
+          "shape": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "repeat": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "panel": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "shared": {
+            "type": "boolean"
+          },
+          "visual": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": true
+              }
+            ]
+          },
+          "illustration": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "composition": {
+                "enum": [
+                  "illustration-left",
+                  "illustration-right",
+                  "illustration-top",
+                  "illustration-bottom",
+                  "illustration-center"
+                ]
+              },
+              "params": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "source": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "primitives": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "shape"
+                  ],
+                  "properties": {
+                    "shape": {
+                      "enum": [
+                        "circle",
+                        "ellipse",
+                        "rect",
+                        "line",
+                        "polyline",
+                        "polygon",
+                        "text"
+                      ]
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "main",
+              "residual",
+              "auxiliary",
+              "conditioning",
+              "training"
+            ]
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "annotations": {
+      "type": "array"
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "style": {
+      "type": "object",
+      "properties": {
+        "compact": {
+          "type": "boolean"
+        },
+        "show_shapes": {
+          "type": "boolean"
+        },
+        "show_repeat_badges": {
+          "type": "boolean"
+        },
+        "colors": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "visual_level": {
+          "enum": [
+            "minimal",
+            "publication",
+            "publication-rich"
+          ]
+        },
+        "visual_grammar": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

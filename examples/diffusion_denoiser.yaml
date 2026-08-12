@@ -1,0 +1,25 @@
+version: "1.0"
+figure:
+  title: "Conditional diffusion denoiser"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+metadata:
+  source_framework: generic
+  mode: paper-overview
+nodes:
+  - {id: noisy, label: "Noisy sample x_t", role: input, kind: data}
+  - {id: time, label: "Timestep t", role: auxiliary, kind: data}
+  - {id: cond, label: "Condition", role: auxiliary, kind: data}
+  - {id: time_embed, label: "Time Embedding", role: representation, kind: module}
+  - {id: cond_embed, label: "Condition Encoder", role: representation, kind: module}
+  - {id: denoiser, label: "Denoiser Backbone", role: novel, kind: module, subtitle: "conditioned residual network"}
+  - {id: pred, label: "Predicted Noise", role: output, kind: output}
+edges:
+  - {from: noisy, to: denoiser, type: main}
+  - {from: time, to: time_embed, type: auxiliary}
+  - {from: time_embed, to: denoiser, type: conditioning, label: "time"}
+  - {from: cond, to: cond_embed, type: auxiliary}
+  - {from: cond_embed, to: denoiser, type: conditioning, label: "context"}
+  - {from: denoiser, to: pred, type: main}

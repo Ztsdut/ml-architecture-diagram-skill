@@ -1,0 +1,52 @@
+version: "1.0"
+figure:
+  title: "Transformer encoder model"
+  direction: LR
+  target: paper
+  theme: paper-light
+  font: Arial
+  width_mm: 178
+  panel_gap_mm: 8
+metadata:
+  source_framework: generic
+  mode: paper-detail
+  unresolved: []
+panels:
+  - id: overall
+    label: "(a)"
+    title: "Overall architecture"
+    node_ids: [tokens, embedding, encoder_stack, pooling, head, prediction]
+  - id: encoder_detail
+    label: "(b)"
+    title: "Encoder block"
+    node_ids: [d_input, norm1, mha, add1, norm2, ffn, add2, d_output]
+nodes:
+  - {id: tokens, label: "Input tokens", role: input, kind: data, panel: overall, shape: "B × T"}
+  - {id: embedding, label: "Token + Position Embedding", role: representation, kind: module, panel: overall}
+  - {id: encoder_stack, label: "Transformer Encoder", role: novel, kind: module, panel: overall, repeat: 6, shape: "B × T × d"}
+  - {id: pooling, label: "Sequence Pooling", role: operator, kind: operator, panel: overall}
+  - {id: head, label: "Prediction Head", role: head, kind: module, panel: overall}
+  - {id: prediction, label: "Prediction", role: output, kind: output, panel: overall}
+  - {id: d_input, label: "Block input", role: input, kind: data, panel: encoder_detail}
+  - {id: norm1, label: "Norm", role: preprocess, kind: operator, panel: encoder_detail}
+  - {id: mha, label: "Multi-Head Self-Attention", role: novel, kind: module, panel: encoder_detail}
+  - {id: add1, label: "+", role: fusion, kind: merge, panel: encoder_detail}
+  - {id: norm2, label: "Norm", role: preprocess, kind: operator, panel: encoder_detail}
+  - {id: ffn, label: "Feed-Forward Network", role: backbone, kind: module, panel: encoder_detail}
+  - {id: add2, label: "+", role: fusion, kind: merge, panel: encoder_detail}
+  - {id: d_output, label: "Block output", role: output, kind: output, panel: encoder_detail}
+edges:
+  - {from: tokens, to: embedding, type: main}
+  - {from: embedding, to: encoder_stack, type: main}
+  - {from: encoder_stack, to: pooling, type: main}
+  - {from: pooling, to: head, type: main}
+  - {from: head, to: prediction, type: main}
+  - {from: d_input, to: norm1, type: main}
+  - {from: norm1, to: mha, type: main}
+  - {from: mha, to: add1, type: main}
+  - {from: d_input, to: add1, type: residual}
+  - {from: add1, to: norm2, type: main}
+  - {from: norm2, to: ffn, type: main}
+  - {from: ffn, to: add2, type: main}
+  - {from: add1, to: add2, type: residual}
+  - {from: add2, to: d_output, type: main}
